@@ -1,0 +1,45 @@
+Register User — New Field Requirements: dateOfBirth
+
+Change: Field is_adult (boolean) is replaced with dateOfBirth to capture the user’s exact date of birth.
+
+Endpoint: POST /auth/register
+
+Field Specification
+
+Property
+Value
+Field name
+`dateOfBirth`
+Data type
+string
+Format
+YYYY-MM-DD (ISO 8601)
+Required
+Yes
+Example 
+`1990-05-20`
+
+
+
+Validation Rules
+
+Rule
+Error message
+Field is required
+`dateOfBirth is required`
+Format must be YYYY-MM-DD
+`Invalid date format. Use YYYY-MM-DD`
+Date cannot be in the future
+`dateOfBirth cannot be a future date`
+User must be 18 or older
+`User must be at least 18 years old`
+
+
+
+Error Response (400)
+
+{
+"code": "VALIDATION_ERROR",
+"field": "dateOfBirth",
+"message": "User must be at least 18 years old"
+} 
